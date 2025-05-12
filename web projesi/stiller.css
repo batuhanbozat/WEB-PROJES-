@@ -1,0 +1,44 @@
+body{
+    background-color: white;
+    margin: 0;
+}
+
+
+
+
+.ustdiv  {
+    display: flex;
+    overflow-x: auto;
+   }
+ 
+   .ustdiv > div  {
+     flex: 1;
+     height: 50;
+     background-color:#4000b5;
+     color: white;
+     text-align: center;
+     transition: background-color 0.3s ease;
+     min-width: 200px
+   }
+
+   .ustdiv > div:hover {
+     background-color: #010512;
+ }
+ 
+ .ustdiv a {
+     color: white;
+     display: block;
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+
+ /* Bootstrap */
+
+ .form-control {
+    max-width: 400px;
+    
+  }
+
+
+ 
