@@ -1,0 +1,79 @@
+<html>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="stiller.css">
+    
+    
+</head>
+
+<body>
+
+    <div id="ustdivAlani">
+
+    </div><br><br>
+
+
+    
+
+
+
+      <div class="kutu2">
+        
+            <image width="560" height="315" src="resimler/fabelmans.jpg"></image>
+        
+            <h1>
+            Merhaba
+            </h1><br>
+            <p>
+            Vaktimin çoğunda film izliyorum. Güzel olduğu sürece tür, ülke, milliyet fark etmeksizin her filmi severek izlerim.
+            </p>
+        
+
+      </div>
+
+  
+        <div class="kutu2">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NN-9SQXoi50?si=y_WgM0Tg66dYAbri" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        
+            <h1>
+            Merhaba
+            </h1><br>
+            <p>
+             Video oyunlarıyla haşır neşirim. Özellikle refleks odaklı ve orijinal sanat tasarımlarına sahip oyunları severim.
+            </p>
+     
+
+      </div>
+
+
+
+
+
+
+
+
+<script>
+    // secenekler.html'den fetch ile bilgi alınır. stringe çevrilir. 
+    // ustkisim secenekler.html'nin içeriğine eşittir ve ustdivAlani manipüle etmek için kullanılır 
+    
+    fetch("secenekler.html")
+        .then(res => res.text())
+        .then(ustkisim => {
+            document.getElementById("ustdivAlani").innerHTML = ustkisim;
+        });
+
+
+</script>
+
+
+</body>
+
+
+
+
+</html>

@@ -1,6 +1,6 @@
 body{
     background-color: white;
-    margin: 0;
+    
 }
 
 
@@ -12,13 +12,14 @@ body{
    }
  
    .ustdiv > div  {
-     flex: 1;
+     flex:1;
      height: 50;
      background-color:#4000b5;
      color: white;
      text-align: center;
      transition: background-color 0.3s ease;
      min-width: 200px
+    
    }
 
    .ustdiv > div:hover {
@@ -30,7 +31,33 @@ body{
      display: block;
      text-decoration: none;
      cursor: pointer;
+    
+     
  }
+
+
+.kutu {  
+    margin:30px auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.kutu2 {  
+    margin:30px auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+   
+}
+
 
 
  /* Bootstrap */
@@ -40,5 +67,3 @@ body{
     
   }
 
-
- 
