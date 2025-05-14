@@ -16,8 +16,18 @@
 
 <div id="ustdivAlani"></div><br><br>
 
+<div id="filmAlani" style="display: flex; gap: 20px;">
+  <div id="filmBir"></div>
+  <div id="filmIki"></div>
+</div>
 
-    <h1>aaanlkn</h1>
+<div id="filmAlani2" style="display: flex; gap: 20px;">
+  <div id="filmUc"></div>
+  <div id="filmDort"></div>
+</div>
+
+
+
 
 <script>
    
@@ -26,6 +36,137 @@
         .then(veri => {
             document.getElementById("ustdivAlani").innerHTML = veri;
         });
+
+
+    const film1 = "Inception";
+    const apiKey = "3c4f9e7f"; 
+
+    fetch(`https://www.omdbapi.com/?t=${film1}&apikey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        const div = document.getElementById("filmBir");
+    div.innerHTML = `
+    <div class="kutu3" style="display: flex; align-items: flex-start;">
+        <!-- Sol taraf: afiş ve IMDB -->
+        <div style="margin-right: 20px; text-align: center;">
+          <img src="${data.Poster}" alt="${data.Title} Afişi"
+               style="width:200px; border-radius: 10px;">
+          <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
+        </div>
+
+       
+        <div style="text-align: left;">
+          <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
+          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+        </div>
+      </div>
+    `;
+    })
+    .catch(error => {
+        console.error("Hata oluştu:", error);
+    });
+
+
+
+    const film2 = "Interstellar";
+    
+
+    fetch(`https://www.omdbapi.com/?t=${film2}&apikey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        const div = document.getElementById("filmIki");
+      div.innerHTML = `
+      <div class="kutu3" style="display: flex; align-items: flex-start;">
+        
+        <div style="margin-right: 20px; text-align: center;">
+          <img src="${data.Poster}" alt="${data.Title} Afişi"
+               style="width:200px; border-radius: 10px;">
+          <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
+        </div>
+
+        
+        <div style="text-align: left;">
+          <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
+          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+        </div>
+      </div>
+    `;
+    })
+    .catch(error => {
+        console.error("Hata oluştu:", error);
+    });
+
+
+
+
+
+
+
+
+    const film3 = "Interstellar";
+    
+
+    fetch(`https://www.omdbapi.com/?t=${film3}&apikey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        const div = document.getElementById("filmUc");
+    div.innerHTML = `
+    <div class="kutu3" style="display: flex; align-items: flex-start;">
+        <!-- Sol taraf: afiş ve IMDB -->
+        <div style="margin-right: 20px; text-align: center;">
+          <img src="${data.Poster}" alt="${data.Title} Afişi"
+               style="width:200px; border-radius: 10px;">
+          <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
+        </div>
+
+       
+        <div style="text-align: left;">
+          <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
+          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+        </div>
+      </div>
+    `;
+    })
+    .catch(error => {
+        console.error("Hata oluştu:", error);
+    });
+
+
+
+    const film4 = "Inception";
+    
+
+    fetch(`https://www.omdbapi.com/?t=${film4}&apikey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        const div = document.getElementById("filmDort");
+      div.innerHTML = `
+      <div class="kutu3" style="display: flex; align-items: flex-start;">
+        
+        <div style="margin-right: 20px; text-align: center;">
+          <img src="${data.Poster}" alt="${data.Title} Afişi"
+               style="width:200px; border-radius: 10px;">
+          <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
+        </div>
+
+        
+        <div style="text-align: left;">
+          <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
+          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+        </div>
+      </div>
+    `;
+    })
+    .catch(error => {
+        console.error("Hata oluştu:", error);
+    });
+
+
+
+
+
+
+
 
 
 </script>

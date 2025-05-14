@@ -1,24 +1,32 @@
 body{
     background-color: white;
-    
+     margin: 0;
 }
 
-
-
+body.sehrim {
+    background-image: url('resimler/sakarya.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ 
+}
 
 .ustdiv  {
-    display: flex;
+    
+  display: flex;
     overflow-x: auto;
+    height: 60;
+     font-family: Arial, sans-serif !important;
    }
  
    .ustdiv > div  {
      flex:1;
-     height: 50;
      background-color:#4000b5;
      color: white;
      text-align: center;
      transition: background-color 0.3s ease;
      min-width: 200px
+      
     
    }
 
@@ -27,14 +35,15 @@ body{
  }
  
  .ustdiv a {
+  
      color: white;
      display: block;
      text-decoration: none;
      cursor: pointer;
-    
      
  }
 
+ 
 
 .kutu {  
     margin:30px auto;
@@ -55,7 +64,37 @@ body{
     padding: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
+    display: flex;
+   align-items: center;
+   justify-content: center
    
+}
+.kutu3 {  
+    margin:30px auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+   
+}
+img {
+  max-width: 100%;
+  max-height:100%;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.afis{
+  border-radius: 10px;
+  width: 200px;
 }
 
 
@@ -67,3 +106,11 @@ body{
     
   }
 
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}

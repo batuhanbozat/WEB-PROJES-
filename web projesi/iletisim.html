@@ -20,67 +20,63 @@
 <div class="kutu">
   <div class="container d-flex justify-content-center">
     <form style="max-width: 500px; width: 100%;" action="iletisim.php" method="post">
-    <div class="form-group">
-      <label for="emailgirisi">Email Adresi</label>
-      <input type="email" class="form-control" id="email2" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">Mailinizi giriniz.</small>
-    </div>
-     
-    <label for="cinsiyetgirisi">Cinsiyetiniz</label><br>
-    <div class="form-check">
-        
-        <input class="form-check-input" type="radio" id="radioErkek" value="erkek" name="cinsiyet">
-        <label class="form-check-label" for="radioErkek">
-          Erkek
-        </label>
+      <div class="form-group">
+       <label for="emailgirisi">Email Adresi</label>
+       <input type="email" class="form-control" id="email2" aria-describedby="emailHelp">
+       <small id="emailHelp" class="form-text text-muted">Mailinizi giriniz.</small> 
       </div>
+     
+       <label for="cinsiyetgirisi">Cinsiyetiniz</label><br>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="radioKiz" value="kiz" name="cinsiyet">
-        <label class="form-check-label" for="radioKiz">
-          Kız
-        </label>
+        
+       <input class="form-check-input" type="radio" id="radioErkek" value="erkek" name="cinsiyet">
+       <label class="form-check-label" for="radioErkek">
+       Erkek
+       </label>
+      
+      </div>
+
+      <div class="form-check">
+      <input class="form-check-input" type="radio" id="radioKiz" value="kiz" name="cinsiyet">
+      <label class="form-check-label" for="radioKiz">
+      Kız
+      </label>
       </div>
    
-    <div class="form-group ">
-        <label for="konubasligigirisi">Konu başlığı</label>
-        <select id="inputState" class="form-control">
-          <option selected>Seçiniz...</option>
-          <option>...</option>
+      <div class="form-group ">
+       <label for="konubasligigirisi">Konu başlığı</label>
+       <select id="inputState" class="form-control">
+         <option selected>Seçiniz...</option>
+         <option>...</option>
         </select>
       </div>
     
       <div class="mb-3">
-        <label for="mesajgirisi">Mesajınızı Giriniz</label>
-        <textarea class="form-control " id="mesaj" placeholder="..." required></textarea>
-        <div class="invalid-feedback">
+       <label for="mesajgirisi">Mesajınızı Giriniz</label>
+       <textarea class="form-control " id="mesaj" placeholder="..." required></textarea>
+       <div class="invalid-feedback">
          Mesaj alanına mesajınızı giriniz.
-        </div>
+       </div>
       </div>
-
-
-
-    <button type="submit" class="btn btn-primary">Gönder</button>
-  </form>
-</div>
+      <button type="submit" class="btn btn-primary">Gönder</button>
+   </form>
+  </div>
 </div>
 
 
 
 
 <script>
-   
+
     fetch("secenekler.html")
         .then(res => res.text())
         .then(veri => {
             document.getElementById("ustdivAlani").innerHTML = veri;
         });
 
-
 </script>
 
 </body>
-
-
 
 
 </html>
