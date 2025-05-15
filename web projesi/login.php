@@ -35,7 +35,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
         $girisBasari=true;
       }
       else{
-        echo "Kullanıcı e postası ya da şifre hatalı!";
+        echo "<div class='kutu'>Kullanıcı e postası ya da şifre hatalı!</div>";
         
       }    
     }
