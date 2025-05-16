@@ -2,6 +2,7 @@ body{
     background-color:white;
     margin: 0;
     margin-top: 60px;
+    padding: 0;
 }
 
 a:visited {
@@ -14,27 +15,32 @@ a:visited {
 .ustdiv  {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     z-index: 999;
     background-color: rgba(64, 0, 181, 0.9); 
     backdrop-filter: blur(5px); 
     display: flex;
     overflow-x: auto;
+     overflow-y: hidden;
     height: 60;
-    font-family: Arial, sans-serif !important;
-
+    
    }
  
    .ustdiv > div  {
-     flex:1;
+    
+     margin-top: 0;
      color: white;
      text-align: center;
      transition: background-color 0.3s ease;
-     min-width: 200px
-
+     min-width: 100px
+    
       
     
+   }
+
+   .ustdiv-login{
+
+    margin-left: 53.9%;
    }
 
    .ustdiv > div:hover {
@@ -42,7 +48,9 @@ a:visited {
  }
  
  .ustdiv a {
-  
+  padding-top: 20px;
+     width:100px ;
+     height: 60px;
      color: white;
      display: block;
      text-decoration: none;
@@ -80,10 +88,12 @@ a:visited {
     background-color: white;
     padding: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 750;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    height: 280px
+    
    
 }
 
@@ -111,15 +121,16 @@ a:visited {
 }
 
 .kutu6 {  
-    margin:15px auto;
+    margin: 90 auto auto auto;
     background-color: white;
-    padding: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    width: 100%;
+    padding: 5;
+    box-shadow: 0 2px 6px rgba(93, 171, 122, 0.408);
+    width: 90%;
     text-align: center;
     align-items: center;
     justify-content: center;
     top: 40;
+    border-radius: 16px;
    
 }
 
@@ -188,12 +199,12 @@ img {
 }
 
 .logo{
-    margin: 10px ;
+    margin: 10px  ;
     border: 1px solid #ccc;
     width:1000px ;
     display: flex;
     align-items: flex-start;
-    background-color: aliceblue;
+    background-color: rgb(215, 225, 233);
     
 
 }
@@ -204,11 +215,55 @@ img {
    
 .film{
 
-      display: flex;
+    display: flex;
     align-items: flex-start;
+    
 }
 
 
+
+.cvsol{
+  padding-top: 40;
+border-top-left-radius: 16px;
+border-bottom-left-radius: 16px;
+color: white;
+background-color: #5514cd;
+    height:700px ;
+    width:500;
+}
+
+.cvsag{
+  padding-top: 40;
+color: black;
+background-color: rgba(225, 235, 241, 0.863);
+border-top-right-radius: 16px;
+border-bottom-right-radius: 16px;
+    height:700px ;
+    width:800;
+    border: 5px;
+}
+
+.cv{  
+    margin:0 auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.cvkapsa{
+  display: flex;
+}
+
+.spor {  
+    margin:5px 10px;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 
 
  /* Bootstrap */

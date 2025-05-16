@@ -44,7 +44,7 @@
         });
 
 
-    const film1 = "Inception";
+    const film1 = "Se7en ";
     const apiKey = "3c4f9e7f"; 
 
     fetch(`https://www.omdbapi.com/?t=${film1}&apikey=${apiKey}`)
@@ -53,17 +53,17 @@
         const div = document.getElementById("filmBir");
     div.innerHTML = `
     <div class="kutu3" style="display: flex; align-items: flex-start;">
-        <!-- Sol taraf: afiş ve IMDB -->
+
         <div style="margin-right: 20px; text-align: center;">
           <img src="${data.Poster}" alt="${data.Title} Afişi"
-               style="width:200px; border-radius: 10px;">
+               style="width:370px; border-radius: 10px;">
           <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
         </div>
 
        
         <div style="text-align: left;">
           <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
-          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+          <p><strong>Konu:</strong> Yeni ortağıyla son görevine çıkan tecrübeli bir dedektif, yedi ölümcül günah temalı cinayetler işleyen sapkın bir seri katilin peşine düşer ve bu karanlık dava onları derin psikolojik sorgulamalara sürükler.</p>
         </div>
       </div>
     `;
@@ -74,7 +74,7 @@
 
 
 
-    const film2 = "Interstellar";
+    const film2 = "The Departed";
     
 
     fetch(`https://www.omdbapi.com/?t=${film2}&apikey=${apiKey}`)
@@ -86,14 +86,14 @@
         
         <div style="margin-right: 20px; text-align: center;">
           <img src="${data.Poster}" alt="${data.Title} Afişi"
-               style="width:200px; border-radius: 10px;">
+               style="width:420px; border-radius: 10px;">
           <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
         </div>
 
         
         <div style="text-align: left;">
           <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
-          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+          <p><strong>Konu:</strong>Boston'da geçen hikâyede, polis teşkilatına sızmış bir mafya köstebeğiyle, mafya içine sızmış bir polis ajanı arasındaki ölümcül kedi-fare oyunu, kimliğin ve sadakatin sınandığı psikolojik bir mücadeleye dönüşür.</p>
         </div>
       </div>
     `;
@@ -109,7 +109,7 @@
 
 
 
-    const film3 = "Interstellar";
+    const film3 = "Moonrise Kingdom";
     
 
     fetch(`https://www.omdbapi.com/?t=${film3}&apikey=${apiKey}`)
@@ -118,17 +118,19 @@
         const div = document.getElementById("filmUc");
     div.innerHTML = `
     <div class="kutu3" style="display: flex; align-items: flex-start;">
-        <!-- Sol taraf: afiş ve IMDB -->
+
         <div style="margin-right: 20px; text-align: center;">
           <img src="${data.Poster}" alt="${data.Title} Afişi"
-               style="width:200px; border-radius: 10px;">
+               style="width:370px; border-radius: 10px;">
           <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
         </div>
 
        
-        <div style="text-align: left;">
+        <div  style="text-align: left;">
           <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
-          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+          <p><strong>Konu:</strong> 1965 yazında geçen hikâyede, bir izci çocuğun ve yalnız bir kızın birlikte kaçışıyla başlayan olaylar, küçük bir adadaki kasaba halkının, kaybolan bu çocukları bulma çabasıyla iç içe geçmiş duygusal bir yolculuğa dönüşür.
+
+</p>
         </div>
       </div>
     `;
@@ -139,7 +141,7 @@
 
 
 
-    const film4 = "Inception";
+    const film4 = "Licorice Pizza";
     
 
     fetch(`https://www.omdbapi.com/?t=${film4}&apikey=${apiKey}`)
@@ -151,14 +153,15 @@
         
         <div style="margin-right: 20px; text-align: center;">
           <img src="${data.Poster}" alt="${data.Title} Afişi"
-               style="width:200px; border-radius: 10px;">
+               style="width:300px; border-radius: 10px;">
           <p style="margin-top: 10px;"><strong>IMDB:</strong> ${data.imdbRating}</p>
         </div>
 
         
         <div style="text-align: left;">
           <h2 style="margin: 0;">${data.Title} (${data.Year})</h2>
-          <p><strong>Konu:</strong> Rüyaların içine girilerek bilinçaltının derinliklerinde bilgi çalınmasını konu alan bir bilim kurgu filmidir.</p>
+          <p><strong>Konu:</strong> Gary Valentine ve Alana Kane'in 1973 yılında San Fernando Vadisi'nde büyümelerinin, oradan oraya koşturmalarının ve ilk aşklarının zorlu yolculuklarını konu alan hikaye.</p>
+
         </div>
       </div>
     `;

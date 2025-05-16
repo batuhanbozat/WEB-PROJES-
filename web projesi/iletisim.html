@@ -19,10 +19,14 @@
 
 <div class="kutu">
   <div class="container d-flex justify-content-center">
-    <form style="max-width: 500px; width: 100%;" action="iletisim.php" method="post">
+    <form style="max-width: 500px; width: 100%;" action="iletisim.php" id="iletisim" method="post">
+      <div class="form-group">
+        <label for="isimgiris">İsminiz</label>
+        <input type="text" class="form-control" name="isim" id="isim" aria-describedby="emailHelp">
+      </div>
       <div class="form-group">
        <label for="emailgirisi">Email Adresi</label>
-       <input type="email" class="form-control" id="email2" aria-describedby="emailHelp">
+       <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
        <small id="emailHelp" class="form-text text-muted">Mailinizi giriniz.</small> 
       </div>
      
@@ -45,24 +49,29 @@
    
       <div class="form-group ">
        <label for="konubasligigirisi">Konu başlığı</label>
-       <select id="inputState" class="form-control">
+       <select id="konu" class="form-control" name="konu">
          <option selected>Seçiniz...</option>
-         <option>...</option>
+          <option>Genel</option>
+          <option>Teknik Destek</option>
+          <option>Öneri</option>
         </select>
       </div>
     
       <div class="mb-3">
        <label for="mesajgirisi">Mesajınızı Giriniz</label>
-       <textarea class="form-control " id="mesaj" placeholder="..." required></textarea>
+       <textarea class="form-control " id="mesaj" placeholder="..." required name="mesaj"  ></textarea>
        <div class="invalid-feedback">
          Mesaj alanına mesajınızı giriniz.
        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Gönder</button>
+      
+      <button type="button" class="btn btn-primary" @click="gonder">Gönder</button>
+      <button type="button" class="btn btn-secondary" @click="temizle">Temizle</button>
    </form>
   </div>
 </div>
 
+<!--<button type="submit" class="btn btn-primary">Gönder</button>-->
 
 
 
@@ -75,6 +84,81 @@
         });
 
 </script>
+
+<!-- Vue.js-->
+<!-- Vue.js dahil et -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+  new Vue({
+    el:'.kutu',
+    data: {
+    isim:'',
+    email: '',
+    cinsiyet: '',
+    konu: '',
+    mesaj: '',
+    },
+    methods: {
+      gonder() {
+        // Tüm alanlardan değerleri al
+        this.email = document.getElementById('email').value;
+        this.cinsiyet = document.querySelector('input[name="cinsiyet"]:checked')?.value || '';
+        this.konu = document.getElementById('konu').value;
+        this.mesaj = document.getElementById('mesaj').value;
+        this.isim=document.getElementById('isim').value;     
+        
+
+        // Kontroller
+        if(!this.isim){
+          alert('Adınız Soyadınızı giriniz')
+          return;
+        }
+
+        if (!this.email || !this.validateEmail(this.email)) {
+          alert('Geçerli bir email giriniz.');
+          return;          
+        }
+
+        if (!this.cinsiyet) {
+          alert('Cinsiyet seçiniz.');
+          return;
+        }
+
+        if (this.konu === 'Seçiniz...') {
+          alert('Konu seçiniz.');
+          return;         
+        }
+
+        if (!this.mesaj.trim()) {
+          alert('Mesajınızı giriniz.');
+          return;
+        }
+
+
+        document.getElementById('iletisim').submit();
+      },
+
+      temizle() {
+        document.getElementById('mesaj').value = '';
+        document.getElementById('isim').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('inputState').value = '';
+       
+        const radios = document.querySelectorAll('input[name="cinsiyet"]');
+        for (let i = 0; i < radios.length; i++) {
+         radios[i].checked = false;}
+
+      },
+      validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+    }
+  });
+</script>
+
 
 </body>
 

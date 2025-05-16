@@ -62,7 +62,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form style="max-width: 500px; width: 100%;" action="login.php" method="post" onsubmit="return formKontrol()">
      <div class="form-group">
        <label for="emailgirisi">Email Adresi</label>
-       <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+       <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp">
        <small id="emailYorum" class="form-text text-muted">Mailinizi giriniz.</small>
       </div>
      
@@ -104,11 +104,17 @@ document.getElementById("sifreGoster").addEventListener("change", function () {
 function formKontrol() {
     const email = document.getElementById("email").value.trim();
     const sifre = document.getElementById("sifre").value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (email === "" || sifre === "") {
         alert("Lütfen giriş ekranını doldurunuz!");
         return false; 
     }
+     if (!emailRegex.test(email)) {
+        alert("Lütfen geçerli bir e-posta adresi giriniz!");
+        return false;
+    }
+
 
     return true; 
 }
