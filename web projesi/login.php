@@ -57,7 +57,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php if (!$girisBasari): ?>
 
 
-<div class="kutu">
+<div class="kutu" >
   <div class="container d-flex justify-content-center">
     <form style="max-width: 500px; width: 100%;" action="login.php" method="post" onsubmit="return formKontrol()">
      <div class="form-group">
@@ -125,6 +125,14 @@ function formKontrol() {
 
 
 
+
+
+<div class="altdiv2" >
+    <footer>
+   <p>©Copyrigt 2025</p>
+  
+</footer>
+</div>
 
 </body>
 
