@@ -10,20 +10,21 @@ a:visited {
   background-color: white;
 }
 .altdiv{
+  
     padding-top: 30;
     bottom: 0;
     width: 100%;
     background-color: #5514cd; 
     display: flex;
     text-align: center;
-    margin-top: 10;
+    margin-top: 120;
     color: white;
     align-items: center;
     justify-content: center
 }
 .altdiv2{
     padding-top: 30;  
-    margin-top: 110;
+    margin-top: 360;
     width: 100%;
     background-color: #5514cd; 
     display: flex;
