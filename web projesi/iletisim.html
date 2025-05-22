@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="stiller.css">
-    
+    <!-- Vue.js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 </head>
 
 <body>
@@ -22,18 +23,18 @@
     <form style="max-width: 500px; width: 100%;" action="iletisim.php" id="iletisim" method="post">
       <div class="form-group">
         <label for="isimgiris">İsminiz</label>
-        <input type="text" class="form-control" name="isim" id="isim" aria-describedby="emailHelp">
+        <input type="text" class="form-control" name="isim" id="isim" aria-describedby="emailHelp"  v-model="isim">
       </div>
       <div class="form-group">
        <label for="emailgirisi">Email Adresi</label>
-       <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+       <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" v-model="email">
        <small id="emailHelp" class="form-text text-muted">Mailinizi giriniz.</small> 
       </div>
      
        <label for="cinsiyetgirisi">Cinsiyetiniz</label><br>
       <div class="form-check">
         
-       <input class="form-check-input" type="radio" id="radioErkek" value="erkek" name="cinsiyet">
+       <input class="form-check-input" type="radio" id="radioErkek" value="erkek" name="cinsiyet"v-model="cinsiyet">
        <label class="form-check-label" for="radioErkek">
        Erkek
        </label>
@@ -41,7 +42,7 @@
       </div>
 
       <div class="form-check">
-      <input class="form-check-input" type="radio" id="radioKiz" value="kiz" name="cinsiyet">
+      <input class="form-check-input" type="radio" id="radioKiz" value="kiz" name="cinsiyet"v-model="cinsiyet">
       <label class="form-check-label" for="radioKiz">
       Kız
       </label>
@@ -49,7 +50,7 @@
    
       <div class="form-group ">
        <label for="konubasligigirisi">Konu başlığı</label>
-       <select id="konu" class="form-control" name="konu">
+       <select id="konu" class="form-control" name="konu" v-model="konu">
          <option selected>Seçiniz...</option>
           <option>Genel</option>
           <option>Teknik Destek</option>
@@ -59,20 +60,22 @@
     
       <div class="mb-3">
        <label for="mesajgirisi">Mesajınızı Giriniz</label>
-       <textarea class="form-control " id="mesaj" placeholder="..." required name="mesaj"  ></textarea>
+       <textarea class="form-control " id="mesaj" placeholder="..." required  name="mesaj" v-model="mesaj" ></textarea>
        <div class="invalid-feedback">
          Mesaj alanına mesajınızı giriniz.
        </div>
       </div>
       
-      <button type="button" class="btn btn-primary" @click="gonder">Gönder</button>
-      <button type="button" class="btn btn-secondary" @click="temizle">Temizle</button>
+      <button type="button" class="btn btn-warning mr-2" onclick="jsKontrol()">JS Kontrol</button>
+      <button type="button" class="btn btn-success" @click="vueKontrol" >Vue Kontrol</button>
+      <button type="button" class="btn btn-primary" onclick="gonder()">Gönder</button>
+      <button type="button" class="btn btn-secondary" onclick="temizle()">Temizle</button>
    </form>
   </div>
 </div>
 
 
-<!--<button type="submit" class="btn btn-primary">Gönder</button>-->
+
 
 
 
@@ -86,12 +89,62 @@
 
 </script>
 
-<!-- Vue.js-->
-<!-- Vue.js dahil et -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+
 
 <script>
-  new Vue({
+  
+  let kontrolEdildiMi = false;
+
+
+  function jsKontrol() {
+      const isim = document.getElementById("isim").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const cinsiyetErkek = document.getElementById("radioErkek").checked;
+      const cinsiyetKiz = document.getElementById("radioKiz").checked;
+      const konu = document.getElementById("konu").value;
+      const mesaj = document.getElementById("mesaj").value.trim();
+
+      let hata = "";
+
+      if (!isim) hata += "İsim boş olamaz.\n";
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) hata += "Geçerli bir email giriniz.\n";
+      if (!cinsiyetErkek && !cinsiyetKiz) hata += "Cinsiyet seçiniz.\n";
+      if (!konu || konu === "") hata += "Konu seçiniz.\n";
+      if (!mesaj) hata += "Mesaj giriniz.\n";
+
+      if (hata) {
+        alert("JS Doğrulama Hataları:\n" + hata);
+      } 
+
+          if (!hata) {
+        alert("JS ile doğrulama başarılı!");
+        kontrolEdildiMi = true;
+    }
+  }
+
+ function temizle() 
+     {
+        document.getElementById('mesaj').value = '';
+        document.getElementById('isim').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('inputState').value = '';
+     }
+
+     function gonder()
+    {
+    if (!kontrolEdildiMi) 
+       {
+          alert("Lütfen önce 'JS Kontrol' ya da 'Vue Kontrol' butonlarından biriyle doğrulama yapınız.");
+          return;
+       }
+
+    document.getElementById("iletisim").submit();
+    }  
+
+
+  new Vue(
+ {
     el:'.kutu',
     data: {
     isim:'',
@@ -100,63 +153,28 @@
     konu: '',
     mesaj: '',
     },
-    methods: {
-      gonder() {
-        // Tüm alanlardan değerleri al
-        this.email = document.getElementById('email').value;
-        this.cinsiyet = document.querySelector('input[name="cinsiyet"]:checked')?.value || '';
-        this.konu = document.getElementById('konu').value;
-        this.mesaj = document.getElementById('mesaj').value;
-        this.isim=document.getElementById('isim').value;     
-        
+      methods: {
+        vueKontrol() {
 
-        // Kontroller
-        if(!this.isim){
-          alert('Adınız Soyadınızı giriniz')
-          return;
+          let hata = "";
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+          if (!this.isim) hata += "İsim boş olamaz.\n";
+          if (!this.email || !emailRegex.test(this.email)) hata += "Geçerli bir email giriniz.\n";
+          if (!this.cinsiyet) hata += "Cinsiyet seçiniz.\n";
+          if (!this.konu) hata += "Konu seçiniz.\n";
+          if (!this.mesaj) hata += "Mesaj giriniz.\n";
+
+          if (hata) {
+            alert("Vue Doğrulama Hataları:\n" + hata);
+          } 
+          if (!hata) 
+          {
+           alert("Vue.js ile doğrulama başarılı!");
+           kontrolEdildiMi = true;
+          }
         }
-
-        if (!this.email || !this.validateEmail(this.email)) {
-          alert('Geçerli bir email giriniz.');
-          return;          
-        }
-
-        if (!this.cinsiyet) {
-          alert('Cinsiyet seçiniz.');
-          return;
-        }
-
-        if (this.konu === 'Seçiniz...') {
-          alert('Konu seçiniz.');
-          return;         
-        }
-
-        if (!this.mesaj.trim()) {
-          alert('Mesajınızı giriniz.');
-          return;
-        }
-
-
-        document.getElementById('iletisim').submit();
-      },
-
-      temizle() {
-        document.getElementById('mesaj').value = '';
-        document.getElementById('isim').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('inputState').value = '';
-       
-        const radios = document.querySelectorAll('input[name="cinsiyet"]');
-        for (let i = 0; i < radios.length; i++) {
-         radios[i].checked = false;}
-
-      },
-      validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-    }
+      }
   });
 </script>
 
